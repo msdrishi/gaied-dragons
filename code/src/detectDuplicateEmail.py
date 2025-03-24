@@ -8,7 +8,6 @@ from sklearn.metrics.pairwise import cosine_similarity
 # 📌 File paths for persistent storage
 DB_PATH = "faiss_index.bin"
 EMAILS_PATH = "emails.pkl"
-LLM_RESULTS_PATH = "llm_results.pkl"
 
 # 📌 Load embedding model
 model = SentenceTransformer('all-MiniLM-L6-v2')
@@ -36,7 +35,6 @@ def is_duplicate_email(email_body, threshold=0.8):
         print(f"🔍 Best Match Similarity: {max_similarity:.2f}")
 
         if max_similarity >= threshold:
-            print(f"⚠️ Duplicate detected! Skipping LLM. Returning cached result.")
             return True, email_store[best_match_idx]
 
     return False, None
@@ -46,14 +44,14 @@ def process_email(email_body):
     duplicate, matched_email = is_duplicate_email(email_body)
 
     if duplicate:
-        return llm_results.get(matched_email, "⚠️ No cached result found!")
+        return 'duplicate'
 
 
     # Store new email
     new_embedding = get_embedding(email_body)
     index.add(new_embedding.reshape(1, -1))  
     email_store.append(email_body)
-    print("✅ New email processed & stored!")
+    print(" New email processed & stored!")
     save_data()
 
 # 📌 Save FAISS index, emails
@@ -75,4 +73,4 @@ def load_data():
 
 # ✅ Load existing data when script starts
 process_email("Hello, your order has been shipped!")
-process_email("Hey, we shipped your order!")
+print(process_email("Hey, we shipped your order!"))

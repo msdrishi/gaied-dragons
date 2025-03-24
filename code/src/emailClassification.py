@@ -3,6 +3,7 @@ from emailExtractEML import extract_eml_content
 from emailExtract import extract_text
 from emailEMLPreprocess import clean_text
 from groqLLM import classify_query  # Import the classify_query function
+from detectDuplicateEmail import process_email 
 
 def classify_email(eml_path, output_dir):
     # Extract content from .eml file
@@ -22,13 +23,18 @@ def classify_email(eml_path, output_dir):
     
     # Combine email content and attachments info
     combined_content = preprocessed_content + attachments_info
-    # check whether it is duplicate content or not
-    # Call the LLM for classification
-    response = classify_query(combined_content)
     
-    # Print the response
-    print("User Query:", combined_content)
-    print("LLM Response:", response)
+    # check whether it is duplicate content or not
+    if process_email(combined_content) == 'duplicate':
+        print('Duplicate Email Detected!')
+    else:
+        
+        # Call the LLM for classification
+        response = classify_query(combined_content)
+    
+        # Print the response
+        print("User Query:", combined_content)
+        print("LLM Response:", response)
 
 # Example usage
 if __name__ == "__main__":
