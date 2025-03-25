@@ -66,23 +66,5 @@ def extract_text(file_path):
     # print(text)
     # Preprocess the extracted text
     # print("Extracted Text After Preprocessing:")
-    text = preprocess_text(text)
+    text = preprocess_text(text)  
     return text
-
-# Sample usage
-pdf_path = "E:\\hackathon-emailrouting\\Sample_PDF.pdf"
-docx_path = "E:\\hackathon-emailrouting\\Sample_DOCX.docx"
-doc_path = "E:\\hackathon-emailrouting\\Sample_DOC.doc"
-jpg_path = "E:\\hackathon-emailrouting\\Sample_JPG.jpg"
-
-print("PDF Content:")
-print(extract_text(pdf_path))
-
-print("\nDOCX Content:")
-print(extract_text(docx_path))
-
-print("\nJPG Content:")
-print(extract_text(jpg_path))
-
-print("\nDOC Content:")
-print(extract_text(doc_path))

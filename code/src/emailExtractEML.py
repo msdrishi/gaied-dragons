@@ -74,17 +74,3 @@ def extract_msg_content(msg_path, output_dir):
         with open(filepath, "wb") as f:
             f.write(attachment.data)
         # print(f"Attachment saved: {filepath}")
-
-# Example usage
-if __name__ == "__main__":
-    eml_path = "E:\\hackathon-emailrouting\\Sample_EML_Multiple_Mail.eml"  # Replace with the path to your .eml file
-    msg_path = "E:\\hackathon-emailrouting\\Sample_MSG_With_DOCX.msg"  # Replace with the path to your .msg file
-    output_dir = "E:\\hackathon-emailrouting\\output_attachments"  # Replace with the path to your output directory
-    
-    # Extract content from .eml file and print it
-    eml_content = extract_eml_content(eml_path, output_dir)
-    # print("Extracted Email Content:")
-    # print(eml_content)
-    
-    # Extract content from .msg file
-    # extract_msg_content(msg_path, output_dir)

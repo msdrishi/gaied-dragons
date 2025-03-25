@@ -24,21 +24,6 @@ def classify_email(eml_path, output_dir):
     # Combine email content and attachments info
     combined_content = preprocessed_content + attachments_info
     
-    # check whether it is duplicate content or not
-    if process_email(combined_content) == 'duplicate':
-        print('Duplicate Email Detected!')
-    else:
-        
-        # Call the LLM for classification
-        response = classify_query(combined_content)
-    
-        # Print the response
-        print("User Query:", combined_content)
-        print("LLM Response:", response)
-
-# Example usage
-if __name__ == "__main__":
-    eml_path = "E:\\hackathon-emailrouting\\Sample_EML_With_DOCX.eml"  # Replace with the path to your .eml file
-    output_dir = "E:\\hackathon-emailrouting\\output_attachments"  # Replace with the path to your output directory
-    
-    classify_email(eml_path, output_dir)
+    # Call the LLM for classification
+    response = classify_query(combined_content)
+    return response
