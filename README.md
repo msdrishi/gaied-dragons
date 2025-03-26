@@ -22,13 +22,14 @@ the system efficiently extracts email content, identifies request types and sub-
 The solution reduces manual intervention, minimizes response time, and enhances accuracy, leading to a streamlined email management process.
 
 ## 🎥 Demo
-🔗 [Live Demo](https://github.com/user-attachments/assets/29fb07f5-e0e8-47d1-b22a-c786b4e0c6eb)
-📹 [Video Demo](https://github.com/user-attachments/assets/29fb07f5-e0e8-47d1-b22a-c786b4e0c6eb) 
-🖼️ Screenshots:
+🔗 [Live Demo](https://github.com/user-attachments/assets/4656ae81-b39b-4e06-a49a-4ab7babd4d68)
+📹 [Video Demo](https://github.com/user-attachments/assets/4656ae81-b39b-4e06-a49a-4ab7babd4d68) 
 
-![Screenshot_Output](https://github.com/user-attachments/assets/3bde48bd-714c-4e60-8f4a-ec3fb13cbda2)
-![Screenshot_Input2](https://github.com/user-attachments/assets/bc810bba-d628-4321-b507-52d02bbdba55)
+## 🖼️ Screenshots:
+
 ![Screenshot_Input](https://github.com/user-attachments/assets/162971dc-355a-4a39-8d31-326e0c759d56)
+![Screenshot3](https://github.com/user-attachments/assets/d770c3b4-2c02-4b88-bbd9-b854a9409ab1)
+![Screenshot2](https://github.com/user-attachments/assets/a8feb46e-84a8-4e94-ab6a-0049060de581)
 
 ## 💡 Inspiration
 Processing high volumes of customer emails manually is time-consuming and prone to errors. This solution uses GenAI to streamline email management by classifying requests, detecting duplicates, and extracting key information.
