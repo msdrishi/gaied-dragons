@@ -1,4 +1,4 @@
-# 🚀 Project Name
+# 🚀 Project : Email Routing and Classification using GenAI
 
 ## 📌 Table of Contents
 - [Introduction](#introduction)
@@ -15,14 +15,20 @@
 
 ## 🎯 Introduction
 
-This project automates the routing and classification of incoming customer emails in the commercial banking sector using GenAI. It extracts email content, classifies request types, detects duplicates, and reduces manual effort for faster response times.
+This project aims to automate the routing and classification of customer emails in the commercial banking sector using GenAI. 
+By leveraging the power of a Retrieval-Augmented Generation (RAG) framework integrated with a Large Language Model (LLM), 
+we can provide relevant information as input and receive accurate, context-aware results in response. 
+the system efficiently extracts email content, identifies request types and sub-types, detects duplicates, and assigns priorities.
+The solution reduces manual intervention, minimizes response time, and enhances accuracy, leading to a streamlined email management process.
 
 ## 🎥 Demo
-🔗 [Live Demo](#) (if applicable)  
-📹 [Video Demo](#) (if applicable)  
+🔗 [Live Demo](https://github.com/user-attachments/assets/29fb07f5-e0e8-47d1-b22a-c786b4e0c6eb)
+📹 [Video Demo](https://github.com/user-attachments/assets/29fb07f5-e0e8-47d1-b22a-c786b4e0c6eb) 
 🖼️ Screenshots:
 
-![Screenshot 1](link-to-image)
+![Screenshot_Output](https://github.com/user-attachments/assets/3bde48bd-714c-4e60-8f4a-ec3fb13cbda2)
+![Screenshot_Input2](https://github.com/user-attachments/assets/bc810bba-d628-4321-b507-52d02bbdba55)
+![Screenshot_Input](https://github.com/user-attachments/assets/162971dc-355a-4a39-8d31-326e0c759d56)
 
 ## 💡 Inspiration
 Processing high volumes of customer emails manually is time-consuming and prone to errors. This solution uses GenAI to streamline email management by classifying requests, detecting duplicates, and extracting key information.
@@ -35,28 +41,26 @@ Classification: Uses GenAI to classify emails into predefined request types and 
 Duplicate Detection: Leverages FAISS for vector similarity search to identify duplicate emails.
 
 ## 🛠️ How We Built It
-GenAI Model: LLM using Groqcloud with LLaMA 3.3 70B for accurate classification.
+GenAI Model: Integrated with Groqcloud using LLaMA 3.3 70B for accurate classification.
 
-Duplicate Detection: FAISS for efficient vector-based similarity search.
+Duplicate Detection: Implemented using FAISS (Facebook AI Similarity Search).
 
-Data Extraction: PyPDF2, docx, win32com, and Tesseract OCR for content extraction.
+Data Extraction: Used PyPDF2, python-docx, win32com, and Tesseract OCR for processing attachments.
 
-Embedding Generation: HuggingFace models to generate embeddings.
+Embedding Generation: Utilized HuggingFace models for generating text embeddings.
 
-Document Management: DOCX files containing request types and sub-types.
+Document Management: Managed request types and sub-types using DOCX documents.
 
-Vector Storage: FAISS Vector Database for similarity comparisons.
+Vector Storage: Stored embeddings in a FAISS vector database.
 
-Backend: Python (Flask/FastAPI).
+Backend: Developed using Python with Flask.
 
-Additional Libraries: Sentence Transformers, NumPy, and Scikit-Learn
+Additional Libraries: Included Sentence Transformers, NumPy, and Scikit-Learn.
 
 ## 🚧 Challenges We Faced
-Fine-tuning the LLM to improve classification accuracy.
-
-Managing large-scale email data efficiently.
-
-Ensuring low false positives in duplicate detection.
+Integrating the RAG framework with the LLM to accurately classify specific request types and sub-types was one of the most challenging aspects. 
+Additionally, processing and cleaning the extracted text from .eml files posed significant difficulties. 
+We worked extensively to minimize token usage while retaining essential information. Our efforts have paid off, resulting in an efficient and accurate solution.
 
 ## 🏃 How to Run
 1. Clone the repository  
@@ -65,19 +69,23 @@ Ensuring low false positives in duplicate detection.
    ```
 2. Install dependencies  
    ```sh
-   npm install  # or pip install -r requirements.txt (for Python)
+   pip install -r requirements.txt (for Python)
    ```
 3. Run the project  
    ```sh
-   npm start  # or python app.py
+   python app.py
    ```
 
 ## 🏗️ Tech Stack
-- 🔹 Frontend: React / Vue / Angular
-- 🔹 Backend: Node.js / FastAPI / Django
-- 🔹 Database: PostgreSQL / Firebase
-- 🔹 Other: OpenAI API / Twilio / Stripe
+- 🔹 Frontend: HTML, CSS, JavaScript
+- 🔹 Backend: Python (Flask / FastAPI)
+- 🔹 Database: FAISS for vector storage
+- 🔹 LLM: Groqcloud (LLaMA 3.3 70B)
+- 🔹 Data Extraction: PyPDF2, python-docx, Tesseract OCR
+- 🔹 Embedding Generation: HuggingFace Models
 
 ## 👥 Team
-- **Your Name** - [GitHub](#) | [LinkedIn](#)
-- **Teammate 2** - [GitHub](#) | [LinkedIn](#)
+- **Rishi Prasad** - [GitHub](https://github.com/msdrishi) | [LinkedIn](https://www.linkedin.com/in/rishi-prasad-6526a7213/)
+- **Dhakshayani** - [GitHub](https://github.com/gsvdhakshayani) | [LinkedIn](https://www.linkedin.com/in/dhakshayani-garapati/)
+- **Abhinisha** - [GitHub](https://github.com/abhinishakumari) | [LinkedIn](https://www.linkedin.com/in/abhinishakumari/)
+- **Anurag** - [GitHub](https://github.com/binuboi79) | [LinkedIn](https://in.linkedin.com/in/anurag-baral-2261a7191)
