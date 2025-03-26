@@ -22,8 +22,8 @@ the system efficiently extracts email content, identifies request types and sub-
 The solution reduces manual intervention, minimizes response time, and enhances accuracy, leading to a streamlined email management process.
 
 ## 🎥 Demo
-🔗 [Live Demo](https://github.com/user-attachments/assets/4656ae81-b39b-4e06-a49a-4ab7babd4d68)
-📹 [Video Demo](https://github.com/user-attachments/assets/4656ae81-b39b-4e06-a49a-4ab7babd4d68) 
+🔗 [Live Demo](https://github.com/user-attachments/assets/b8c6b2e6-58b1-4263-bcf3-07d3da0022a3)
+📹 [Video Demo](https://github.com/user-attachments/assets/b8c6b2e6-58b1-4263-bcf3-07d3da0022a3) 
 
 ## 🖼️ Screenshots:
 
