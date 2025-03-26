@@ -1,4 +1,5 @@
 import os
+import re
 from modules.retrieval.RAGTemplate import process_question
 from modules.classification.detectDuplicateEmail import process_email
 from modules.preprocessing.emailExtractEML import extract_eml_content
@@ -38,6 +39,8 @@ def classify_email(eml_path, output_dir):
     
     # Call the LLM for classification
     response = process_question(combined_content)
-    status_message = check_duplicate_status(combined_content)
-    
-    return response
+    clean_response = re.sub(r"```json|```", "", response).strip()
+    clean_response = clean_response[:-1]
+    status = ',\n  "Existing Issue": "' + check_duplicate_status(combined_content) + '"\n}'
+    clean_response = clean_response + status
+    return clean_response
