@@ -37,6 +37,8 @@ User Query: {query}
         response_text = response.strip()
     else:
         return json.dumps({"error": "Invalid response from AI model"})
+    
+    print('response', response_text)
 
     try:
         # Convert string response to a valid JSON dictionary
