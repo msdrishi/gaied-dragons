@@ -46,14 +46,13 @@ def upload_file():
         filepath = os.path.join(app.config["UPLOAD_FOLDER"], file.filename)
         file.save(filepath)
         
-        response = classify_email(filepath, output_dir)  # Get LLM response
-        clean_response = clean_json_response(response)  # Clean the classification response
-        
+        response = classify_email(filepath, output_dir)  
+        clean_response = clean_json_response(response)
         if not isinstance(clean_response, dict):
-           return jsonify({"error": "Invalid response format"}), 500
+            return jsonify({"error": "Invalid response format"}), 500  
 
-        return jsonify(clean_response)  # Return valid JSON
-    
+        return jsonify(clean_response)  
+
     return jsonify({"error": "Invalid file type"}), 400
 
 if __name__ == "__main__":
