@@ -38,15 +38,6 @@ def extract_text_from_jpg(jpg_path):
     return text
 
 def preprocess_text(text):
-    # Convert text to lowercase
-    # text = text.lower()
-    # Remove email addresses
-    # text = re.sub(r'\S+@\S+', '', text)
-    # Remove URLs
-    # text = re.sub(r'http\S+|www\S+', '', text)
-    # Remove special characters and numbers
-    # text = re.sub(r'[^a-z\s]', '', text)
-    # Remove extra whitespace
     text = re.sub(r'\s+', ' ', text).strip()
     return text
 
