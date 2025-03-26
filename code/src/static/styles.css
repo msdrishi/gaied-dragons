@@ -1,0 +1,42 @@
+/* styles.css */
+
+/* Drag and Drop Zone Styling */
+.drop-zone {
+    border: 2px dashed #007bff;
+    padding: 30px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.drop-zone.dragover {
+    background-color: #e3f2fd;
+}
+
+.drop-zone input {
+    display: none;
+}
+
+/* File Info Styling */
+.file-info {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Center Loading Spinner */
+#loading {
+    display: none;
+    text-align: center;
+}
+
+/* Response and Error Message Styling */
+#errorContainer {
+    display: none;
+    text-align: center;
+    color: red;
+}
+
+#responseContainer {
+    display: none;
+}
