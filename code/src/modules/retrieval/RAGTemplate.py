@@ -17,7 +17,7 @@ if not groq_api_key:
     raise ValueError("GROQ_API_KEY environment variable not set")
 
 # Load DOCX Documents
-doc_path = os.path.abspath("data\LLM_RAG_Documents\RequestTypesandSubTypes.docx")
+doc_path = os.path.abspath("data\\LLM_RAG_Documents\\RequestTypesandSubTypes.docx")
 docx_loader = Docx2txtLoader(doc_path)
 docs = docx_loader.load()
 docx_text = "\n".join([doc.page_content for doc in docs])

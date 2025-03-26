@@ -47,6 +47,13 @@ def upload_file():
         file.save(filepath)
         
         response = classify_email(filepath, output_dir)  
+
+        # Remove all files in the output directory after processing attachments
+        for filename in os.listdir(UPLOAD_FOLDER):
+            file_path = os.path.join(UPLOAD_FOLDER, filename)
+            if os.path.isfile(file_path):
+                os.remove(file_path)
+
         clean_response = clean_json_response(response)
         if not isinstance(clean_response, dict):
             return jsonify({"error": "Invalid response format"}), 500  

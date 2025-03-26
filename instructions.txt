@@ -1,0 +1,58 @@
+
+1. **Clone the Repository**  
+   Clone the repository to your local machine:
+   ```sh
+   git clone <repository-url>
+   cd <repository-folder>
+   ```
+
+2. **Install Python**  
+   Ensure you have Python 3.7 or later installed. You can download it from [python.org](https://www.python.org/).
+
+binuboi79: what are the instructions to be followed by a new user to setup and start this python application?
+
+
+3. **Set Up the Environment**
+   - Ensure Python 3.7+ is installed on your system.
+   - Install Flask and other dependencies by running:
+     ```sh
+     pip install -r requirements.txt
+     ```
+     If `requirements.txt` is not available, manually install the required libraries:
+     ```sh
+     pip install fastapi faiss-cpu PyPDF2 python-docx python-dotenv extract-msg pytesseract numpy scikit-learn Pillow langchain langchain-core langchain-groq langchain-huggingface langchain-openai langchain-community sentence-transformers transformers pywin32
+     ```
+
+4. **Install Tesseract OCR**
+   - Download and install Tesseract OCR from [Tesseract GitHub](https://github.com/tesseract-ocr/tesseract).
+   - Update the `pytesseract.pytesseract.tesseract_cmd` path in `emailExtract.py` to match your Tesseract installation path.
+
+5. **Set Up Environment Variables**
+   - Create a `.env` file in the root directory and add the required environment variables (e.g., `GROQ_API_KEY` for `RAGTemplate.py`).
+   - Login to https://console.groq.com/keys and create Key for GROQ LLM
+
+6. **Prepare the Uploads Directory**
+   - Ensure the `uploads` folder exists in the src directory. If not, create it:
+     ```sh
+     mkdir code/src/uploads
+     ```
+7. **Run the Flask Application**
+   - Navigate to the src directory:
+     ```sh
+     cd code/src
+     ```
+   - Start the Flask application:
+     ```sh
+     python app.py
+     ```
+   - The application will run on `http://127.0.0.1:5000/` by default.
+
+8. **Access the Application**
+   - Open a web browser and navigate to `http://127.0.0.1:5000/`.
+   - Use the file upload interface to upload files for processing.
+
+9. **Test the Application**
+   - Upload supported file types (`.eml`) to test the functionality.
+   - The application will process the file and return the results.
+
+Let me know if you encounter any issues!
