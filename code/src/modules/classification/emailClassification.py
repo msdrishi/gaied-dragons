@@ -41,7 +41,3 @@ def classify_email(eml_path, output_dir):
     status_message = check_duplicate_status(combined_content)
     
     return response
-    # return {
-    #     "classification": response,
-    #     "duplicate_status": status_message
-    # }
