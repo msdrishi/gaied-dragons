@@ -27,9 +27,8 @@ The solution reduces manual intervention, minimizes response time, and enhances 
 
 ## 🖼️ Screenshots:
 
-![Screenshot_Input](https://github.com/user-attachments/assets/162971dc-355a-4a39-8d31-326e0c759d56)
-![Screenshot2](https://github.com/user-attachments/assets/a8feb46e-84a8-4e94-ab6a-0049060de581)
-![Screenshot3](https://github.com/user-attachments/assets/d770c3b4-2c02-4b88-bbd9-b854a9409ab1)
+![Screenshot2](https://github.com/user-attachments/assets/f9fe4c4d-a0a4-43ee-abf0-f861cc3c6412)
+![Screenshot3](https://github.com/user-attachments/assets/0645890a-bf32-4aa2-98a2-242255ed0945)
 
 ## 💡 Inspiration
 Processing high volumes of customer emails manually is time-consuming and prone to errors. This solution uses GenAI to streamline email management by classifying requests, detecting duplicates, and extracting key information.
