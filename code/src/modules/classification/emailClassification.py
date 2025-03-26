@@ -1,9 +1,9 @@
 import os
-from RAGTemplate import process_question
-from detectDuplicateEmail import process_email
-from emailExtractEML import extract_eml_content
-from emailExtract import extract_text
-from emailEMLPreprocess import clean_text
+from modules.retrieval.RAGTemplate import process_question
+from modules.classification.detectDuplicateEmail import process_email
+from modules.preprocessing.emailExtractEML import extract_eml_content
+from modules.preprocessing.emailExtract import extract_text
+from modules.preprocessing.emailEMLPreprocess import clean_text
 
 def check_duplicate_status(combined_content):
         if process_email(combined_content) == 'duplicate':
@@ -38,19 +38,10 @@ def classify_email(eml_path, output_dir):
     
     # Call the LLM for classification
     response = process_question(combined_content)
-
-    return response
-
-    # Print the response
-    print("User Query:\n", combined_content)
-    print("LLM Response:\n", response)
-    # Example usage within classify_email function
     status_message = check_duplicate_status(combined_content)
-    print("\n\nExisting Issue:", status_message)
-
-# Example usage
-if __name__ == "__main__":
-    eml_path = "EML_Files\\Sample_EML_Multiple_Mail.eml"  # Replace with the path to your .eml file
-    output_dir = "output_attachments"  # Replace with the path to your output directory
     
-    classify_email(eml_path, output_dir)
+    return response
+    # return {
+    #     "classification": response,
+    #     "duplicate_status": status_message
+    # }

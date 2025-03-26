@@ -61,10 +61,5 @@ def extract_text(file_path):
         text = extract_text_from_jpg(file_path)
     else:
         raise ValueError("Unsupported file format")
-    # Print the extracted text before preprocessing
-    # print("Extracted Text Before Preprocessing:")
-    # print(text)
-    # Preprocess the extracted text
-    # print("Extracted Text After Preprocessing:")
     text = preprocess_text(text)  
     return text

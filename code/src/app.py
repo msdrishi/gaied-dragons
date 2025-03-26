@@ -1,13 +1,13 @@
 import os
 from flask import Flask, render_template, request, jsonify, url_for
-from emailExtractEML import extract_eml_content
-from emailClassification import classify_email
+from modules.classification.emailClassification import classify_email  # Update this
+from modules.preprocessing.emailExtractEML import extract_eml_content  # Upd
 import json 
 import re
 
 app = Flask(__name__)
 
-output_dir = "C:\\Users\\dhaks\\gaied-dragons\\code\\src\\output_attachments" 
+output_dir = "src\\output_attachments" 
 # Configure upload folder
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
@@ -47,8 +47,11 @@ def upload_file():
         file.save(filepath)
         
         response = classify_email(filepath, output_dir)  # Get LLM response
-        clean_response = clean_json_response(response)   # Clean the response
+        clean_response = clean_json_response(response)  # Clean the classification response
         
+        if not isinstance(clean_response, dict):
+           return jsonify({"error": "Invalid response format"}), 500
+
         return jsonify(clean_response)  # Return valid JSON
     
     return jsonify({"error": "Invalid file type"}), 400

@@ -45,8 +45,17 @@ document.addEventListener("DOMContentLoaded", function () {
     // Update file info text and enable upload button
     function updateFileInfo() {
         if (selectedFile) {
-            fileInfo.textContent = `Selected File: ${selectedFile.name}`;
-            uploadBtn.disabled = false;
+            const fileExtension = selectedFile.name.split('.').pop().toLowerCase();
+            
+            if (fileExtension !== "eml") {
+                fileInfo.textContent = "Only .eml files are allowed!";
+                fileInfo.style.color = "red";
+                uploadBtn.disabled = true;
+            } else {
+                fileInfo.textContent = `Selected File: ${selectedFile.name}`;
+                fileInfo.style.color = "green";
+                uploadBtn.disabled = false;
+            }
         } else {
             fileInfo.textContent = "";
             uploadBtn.disabled = true;
@@ -76,37 +85,21 @@ document.addEventListener("DOMContentLoaded", function () {
             loading.style.display = "none"; // Hide loader
             responseContainer.style.display = "block";
             
-            // Mock Response (Replace this with `data` in real API)
-            // data = {
-            //     "Request Type": "Payment Issues",
-            //     "Sub Request Type": "Payment Allocation Error",
-            //     "Reason": "Incorrect fee charge on loan account",
-            //     "Confidence Level": "90%",
-            //     "Priority": "High",
-            //     "Extracted Fields": {
-            //         "Personal Information": {
-            //             "Name": "John Smith",
-            //             "Email": "john@example.com",
-            //             "Account Number": "1234",
-            //             "Loan Amount": "20000 USD",
-            //             "Interest Rate": "5%",
-            //             "Account Holder Name": "John Doe"
-            //         }
-            //     },
-            //     "Duplicate Detection": "No, the issue is not resolved",
-            //     "Explanation": "The customer is disputing an incorrect fee charge on their loan account and is requesting it to be removed.",
-            //     "Notes": "The customer has attached a screenshot as proof that no such fee should be detected."
-            // };
-
-            // Set dynamic sub-header
             dynamicSubHeader.textContent = "Analysis";
             dynamicSubHeader.style.display = "block";
 
             // Clear previous table content
             dynamicTableBody.innerHTML = "";
 
+            const orderedKeys = [
+                "Request Type",
+                "Sub Request Type",
+                "Priority",
+                ...Object.keys(data).filter(key => !["Request Type", "Sub Request Type", "Priority"].includes(key))
+            ];
             // Populate table with response data
-            Object.entries(data).forEach(([key, value]) => {
+            orderedKeys.forEach((key) => {
+                let value = data[key];
                 let formattedKey = key.replace(/_/g, " ").replace(/\b\w/g, char => char.toUpperCase()); // Format key names
 
                 if (typeof value === "object" && value !== null) {

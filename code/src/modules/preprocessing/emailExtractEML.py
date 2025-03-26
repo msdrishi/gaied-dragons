@@ -21,10 +21,7 @@ def extract_eml_content(eml_path, output_dir):
             "body": msg.get_body(preferencelist=('plain', 'html')).get_content()
         }
         
-        # Print email content
-        # print(f"Email Content (Level {level}):")
         for key, value in email_content.items():
-            # print(f"{key}: {value}")
             combined_content += f"{key}: {value}\n"
         
         # Extract attachments
@@ -37,7 +34,6 @@ def extract_eml_content(eml_path, output_dir):
                 filepath = os.path.join(output_dir, filename)
                 with open(filepath, "wb") as f:
                     f.write(part.get_payload(decode=True))
-                # print(f"Attachment saved: {filepath}")
         
         # Recursively extract nested emails
         for part in msg.iter_parts():
@@ -63,9 +59,7 @@ def extract_msg_content(msg_path, output_dir):
     }
     
     # Print email content
-    # print("Email Content:")
     for key, value in email_content.items():
-        # print(f"{key}: {value}")
         pass
     
     # Extract attachments
@@ -73,4 +67,3 @@ def extract_msg_content(msg_path, output_dir):
         filepath = os.path.join(output_dir, attachment.longFilename)
         with open(filepath, "wb") as f:
             f.write(attachment.data)
-        # print(f"Attachment saved: {filepath}")

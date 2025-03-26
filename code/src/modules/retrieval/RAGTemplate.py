@@ -17,7 +17,7 @@ if not groq_api_key:
     raise ValueError("GROQ_API_KEY environment variable not set")
 
 # Load DOCX Documents
-doc_path = os.path.join("LLM_RAG_Documents", "Request Types and Sub Types.docx")
+doc_path = os.path.abspath("data\LLM_RAG_Documents\RequestTypesandSubTypes.docx")
 docx_loader = Docx2txtLoader(doc_path)
 docs = docx_loader.load()
 docx_text = "\n".join([doc.page_content for doc in docs])
@@ -64,7 +64,6 @@ qa_chain = RetrievalQA.from_chain_type(
 # Function to Process Query and Print Output
 def process_question(user_question):
     response = qa_chain.invoke(user_question)
-    print("Full Response:", response)  # Debugging Step
     
     # Check if 'result' exists in response, else return full response
     return response.get("result", response)
