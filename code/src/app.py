@@ -7,7 +7,7 @@ import re
 
 app = Flask(__name__)
 
-output_dir = "src\\output_attachments" 
+output_dir = "output_attachments" 
 # Configure upload folder
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
@@ -23,7 +23,6 @@ def index():
 
 
 def clean_json_response(response):
-    """Clean the JSON response by removing unwanted formatting."""
     # Remove triple backticks and language hints (```json, ```).
     clean_response = re.sub(r"```json|```", "", response).strip()
     
@@ -31,6 +30,12 @@ def clean_json_response(response):
         return json.loads(clean_response)  # Convert to a valid JSON object
     except json.JSONDecodeError:
         return {"error": "Invalid JSON response from LLM", "raw_response": response}
+
+def clean_folder(folder_path):
+    for filename in os.listdir(folder_path):
+        file_path = os.path.join(folder_path, filename)
+        if os.path.isfile(file_path):
+            os.remove(file_path)
 
 @app.route("/upload", methods=["POST"])
 def upload_file():
@@ -47,12 +52,8 @@ def upload_file():
         file.save(filepath)
         
         response = classify_email(filepath, output_dir)  
-
-        # Remove all files in the output directory after processing attachments
-        for filename in os.listdir(UPLOAD_FOLDER):
-            file_path = os.path.join(UPLOAD_FOLDER, filename)
-            if os.path.isfile(file_path):
-                os.remove(file_path)
+        
+        clean_folder(UPLOAD_FOLDER)
 
         clean_response = clean_json_response(response)
         if not isinstance(clean_response, dict):

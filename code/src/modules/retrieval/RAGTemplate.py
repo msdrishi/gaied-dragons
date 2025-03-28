@@ -39,7 +39,7 @@ retriever = vectorstore.as_retriever()
 
 # Configure Groq LLM
 os.environ["GROQ_API_KEY"] = groq_api_key
-llm = ChatGroq(temperature=0.1, model_name="llama-3.3-70b-versatile")
+llm = ChatGroq(temperature=0.8, model_name="llama-3.3-70b-versatile")
 
 # Create RAG Chain
 rag_template = """Answer the question based only on the following context and retrieve contents in JSON format:
